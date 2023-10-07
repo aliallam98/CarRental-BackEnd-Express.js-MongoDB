@@ -1,4 +1,4 @@
-import jwt, { verify } from 'jsonwebtoken'
+import jwt from 'jsonwebtoken'
 
 // expiresIn = 60 * 60
 // { expiresIn: parseInt(expiresIn) }

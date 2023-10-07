@@ -9,11 +9,13 @@ import carRouter from '../Car/car.router.js'
 export default router;
 
 
-router.use('/:id',carRouter)
+// router.use('/:id',carRouter)
+
+router.get('/search' , categoryController.searchCategory)
 
 router
   .route("/")
-  .get(categoryController.gettAllCategories)
+  .get(categoryController.getAllCategories)
   .post(
     fileUpload(allowedFiles.image).single("image"),
     validation(categoryValidators.addNewCategory),

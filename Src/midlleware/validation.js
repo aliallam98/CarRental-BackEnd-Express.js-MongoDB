@@ -14,9 +14,9 @@ const validateObjectId = (value, helper) => {
 export const generalValidationFields = {
 
 
-    name:joi.string().required(),
-    id:joi.string().custom(validateObjectId).required(),
-
+    name:joi.string(),
+    id:joi.string().custom(validateObjectId),
+    number:joi.number().positive().integer(),
     //File
     file: joi.object({
         size: joi.number().positive().required(),

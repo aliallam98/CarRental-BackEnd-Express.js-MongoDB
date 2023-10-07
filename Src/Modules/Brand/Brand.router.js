@@ -8,13 +8,13 @@ import carRouter from '../Car/car.router.js'
 
 
 
-router.use('/:id',carRouter)
+// router.use('/:id',carRouter)
 
 router.get("/", brandController.getallBrands);
-router.get("/searchbyname",validation(brandValidators.searchBrand), brandController.searchBrand);
+router.get("/search",validation(brandValidators.searchBrand), brandController.searchBrand);
 router.post("/",fileUpload(allowedFiles.image).single('image'),validation(brandValidators.addNewBrand) ,brandController.addNewBrand);
-router.put("/:brandId",fileUpload(allowedFiles.image).single('image'),validation(brandValidators.updateBrand) ,brandController.updateBrand);
-router.delete("/:brandId",validation(brandValidators.deleteBrand) ,brandController.deleteBrand);
+router.put("/:id",fileUpload(allowedFiles.image).single('image'),validation(brandValidators.updateBrand) ,brandController.updateBrand);
+router.delete("/:id",validation(brandValidators.deleteBrand) ,brandController.deleteBrand);
 
 export default router;
     

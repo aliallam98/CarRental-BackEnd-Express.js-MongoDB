@@ -1,4 +1,4 @@
-import { Schema, model } from "mongoose";
+import { Schema, Types, model } from "mongoose";
 
 const carSchema = new Schema(
   {
@@ -8,8 +8,6 @@ const carSchema = new Schema(
     modelYear: { type: Number, required: true },
     seater: { type: Number, required: true },
     powerHourse: { type: String, required: true },
-    category: { type: String, required: true },
-    brand: { type: String, required: true },
     KilometersIncluded: { type: String, required: true },
     rentalCost: { type: String, required: true },
     relatedVideo: {},
@@ -17,6 +15,8 @@ const carSchema = new Schema(
       { secure_url: { type: String }, public_id: { type: String } },
     ],
     carCardImage: { secure_url: { type: String }, public_id: { type: String } },
+    categoryId: { type: Types.ObjectId, required: true ,ref:"Category"},
+    brandId: { type: Types.ObjectId, required: true ,ref:"Brand"},
   },
   { timestamps: true }
 );

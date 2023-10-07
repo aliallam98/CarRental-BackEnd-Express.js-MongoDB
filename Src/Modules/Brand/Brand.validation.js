@@ -22,7 +22,7 @@ export const updateBrand ={
     }),
     file:generalValidationFields.file,
     params:Joi.object().required().keys(
-        {brandId:generalValidationFields.id}
+        {id:generalValidationFields.id}
     ),
     query:Joi.object().required().keys(),
         }
@@ -31,7 +31,7 @@ export const deleteBrand ={
     }),
     file:generalValidationFields.file,
     params:Joi.object().required().keys(
-        {brandId:generalValidationFields.id}
+        {id:generalValidationFields.id}
     ),
     query:Joi.object().required().keys(),
         }

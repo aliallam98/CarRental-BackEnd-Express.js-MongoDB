@@ -2,7 +2,7 @@ import mongoose from "mongoose";
 
 const connectDB = () => {
   mongoose
-    .connect(`mongodb://127.0.0.1:27017/RentCarTesting`)
+    .connect(`mongodb+srv://aliiiabdallah98:SExvCZpJLIiCqiMY@cluster0.kwbzc20.mongodb.net/RentCarTesting`)
     .then(() => {
       console.log("Database connected successfully");
     })
@@ -12,3 +12,4 @@ const connectDB = () => {
 };
 
 export default connectDB;
+

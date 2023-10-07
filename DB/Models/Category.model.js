@@ -10,8 +10,16 @@ const categorySchema = new Schema(
     slug: { type: String, required: true, lowercase: true },
     image: { secure_url: { type: String }, public_id: { type: String } },
   },
-  { timestamps: true }
+  { timestamps: true,
+    toJSON: {virtuals:true}
+   }
 );
+
+categorySchema.virtual("Cars", {
+  localField: "_id",
+  foreignField: "CategoryId",
+  ref: "Car",
+});
 
 const categoryModel = model("Category", categorySchema);
 
