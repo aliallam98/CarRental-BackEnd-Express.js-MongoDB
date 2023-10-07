@@ -2,7 +2,7 @@ import mongoose from "mongoose";
 
 const connectDB = () => {
   mongoose
-    .connect(`mongodb+srv://aliiiabdallah98:SExvCZpJLIiCqiMY@cluster0.kwbzc20.mongodb.net/RentCarTesting`)
+    .connect(process.env.DB_URL_ATLAS)
     .then(() => {
       console.log("Database connected successfully");
     })
@@ -12,4 +12,3 @@ const connectDB = () => {
 };
 
 export default connectDB;
-
