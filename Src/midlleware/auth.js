@@ -3,6 +3,7 @@ import { verifyToken } from "../utils/generateAndVerifyToken.js"
 
 
 export const roles = {
+    superAdmin:"SuperAdmin",
     admin:"Admin",
     user:"User"
 }

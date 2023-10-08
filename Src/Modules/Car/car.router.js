@@ -4,11 +4,12 @@ import * as carController from "./car.controller.js";
 import { allowedFiles, fileUpload } from "../../utils/multer.cloud.js";
 import validation from "../../midlleware/validation.js";
 import * as carValidators from './car.validation.js'
+import { auth } from "../../midlleware/auth.js";
+import { endpoint } from "./car.endpoint.js";
 
-router.get("/", carController.getAllCars);
-router.get("/:id", validation(carValidators.getCarById),carController.getCarById);
-router.post(
-  "/",
+router.route('/').get(carController.getAllCars)
+.post(
+  auth(endpoint.create),
   fileUpload(allowedFiles.image).fields([
     {
       name: "image",
@@ -21,9 +22,19 @@ router.post(
   ,
 
   carController.addNewCar
-);
-router.put(
-  "/:id",
+)
+
+
+
+
+router.route('/:id')
+.delete(
+  auth(endpoint.delete),
+  validation(carValidators.deleteCar),
+  carController.deleteCarById
+)
+.put(
+  auth(endpoint.update),
   fileUpload(allowedFiles.image).fields([
     {
       name: "image",
@@ -35,15 +46,8 @@ router.put(
   validation(carValidators.updateCar)
   ,
   carController.updateCarById
-);
-router.delete(
-  "/:id",
-  validation(carValidators.deleteCar),
-  carController.deleteCarById
-);
-
-
-
+)
+.get(validation(carValidators.getCarById),carController.getCarById);
 
 
 
