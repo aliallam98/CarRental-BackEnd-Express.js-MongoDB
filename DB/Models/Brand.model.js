@@ -13,7 +13,6 @@ brandSchema.virtual("Cars",{
   localField : "_id" ,
   foreignField :"brandId",
   ref:"Car" 
-
 })
 
 const brandModel = model("Brand", brandSchema);
